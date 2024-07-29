@@ -1,7 +1,10 @@
 package baseball;
 
+import baseball.controller.GameController;
+
 public class Application {
     public static void main(String[] args) {
-        System.out.println("동작 확인");
+        GameController controller = new GameController();
+        controller.run();
     }
 }
