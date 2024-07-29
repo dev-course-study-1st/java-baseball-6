@@ -2,24 +2,27 @@ package baseball;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-public class Computer {
-    private final int BASEBALL_NUM_LENGTH = 3;
-    private int[] num;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Computer() {
-        this.num = new int[BASEBALL_NUM_LENGTH];
-    }
+public class Computer {
+    private List<Integer> computerNum = new ArrayList<>();
+
 
     public void generateRandomNum() {
-        for(int i=0; i<BASEBALL_NUM_LENGTH; i++) {
-            this.num[i] = Randoms.pickNumberInRange(1,9);
+        int BASEBALL_NUM_LENGTH = 3;
+        while(computerNum.size() < BASEBALL_NUM_LENGTH) {
+            int randNum = Randoms.pickNumberInRange(1,9);
+            if(!(computerNum.contains(randNum))) {
+                computerNum.add(randNum);
+            }
         }
     }
     public void printStartMsg() {
         System.out.println("숫자 야구 게임을 시작합니다. ");
     }
 
-    public int[] getNum() {
-        return num;
+    public List<Integer> getComputerNum() {
+        return computerNum;
     }
 }
