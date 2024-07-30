@@ -7,6 +7,7 @@ import baseball.service.BaseballService;
 import baseball.util.ConverterHolder;
 import baseball.util.converter.StringToPlayerConverter;
 import baseball.view.InputView;
+import baseball.view.OutputView;
 import java.util.List;
 
 public class GameController {
@@ -21,11 +22,14 @@ public class GameController {
     }
 
     public void run() {
-        InputView.printStartMessage();
+        OutputView.printStartMessage();
         while(true) {
             Player player = InputView.getPlayerNumber();
             GameResult result = baseballService.play(computer, player);
-            System.out.println(result);
+            OutputView.printResult(result);
+            if (result.isDone()) {
+                OutputView.printSuccessMessage();
+            }
         }
     }
 

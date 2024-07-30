@@ -19,11 +19,19 @@ public class GameResult {
         }
     }
 
-    @Override
-    public String toString() {
-        return "GameResult{ " +
-                "strikeCount= " + strikeCount +
-                ", ballCount= " + ballCount +
-                '}';
+    public boolean isDone() {
+        return strikeCount == 3;
+    }
+
+    public boolean isNothing() {
+        return strikeCount == 0 && ballCount == 0;
+    }
+
+    public int getStrikeCount() {
+        return strikeCount;
+    }
+
+    public int getBallCount() {
+        return ballCount;
     }
 }
