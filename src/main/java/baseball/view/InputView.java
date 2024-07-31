@@ -2,7 +2,7 @@ package baseball.view;
 
 import baseball.model.Player;
 import baseball.model.RestartCommand;
-import baseball.util.ConverterHolder;
+import baseball.util.converter.ConverterHolder;
 import camp.nextstep.edu.missionutils.Console;
 
 public class InputView {

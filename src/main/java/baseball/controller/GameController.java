@@ -5,7 +5,7 @@ import baseball.model.GameResult;
 import baseball.model.Player;
 import baseball.model.RestartCommand;
 import baseball.service.BaseballService;
-import baseball.util.ConverterHolder;
+import baseball.util.converter.ConverterHolder;
 import baseball.util.converter.StringToPlayerConverter;
 import baseball.util.converter.StringToRestartCommandConverter;
 import baseball.view.InputView;

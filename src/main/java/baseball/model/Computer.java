@@ -1,18 +1,21 @@
 package baseball.model;
 
-import baseball.util.RandomNumberGenerator;
+import baseball.util.generator.NumberGenerator;
 import java.util.List;
 
 public class Computer {
 
+    private final NumberGenerator numberGenerator;
+
     private List<Integer> answerNumber;
 
-    public Computer() {
-        this.answerNumber = RandomNumberGenerator.getRandomNumber();
+    public Computer(NumberGenerator numberGenerator) {
+        this.numberGenerator = numberGenerator;
+        this.answerNumber = numberGenerator.getRandomNumber();
     }
 
     public void resetNumber() {
-        this.answerNumber = RandomNumberGenerator.getRandomNumber();
+        this.answerNumber = numberGenerator.getRandomNumber();
     }
 
     public boolean contains(Integer number) {

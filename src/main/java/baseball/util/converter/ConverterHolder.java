@@ -1,6 +1,5 @@
-package baseball.util;
+package baseball.util.converter;
 
-import baseball.util.converter.Converter;
 import java.util.List;
 
 public class ConverterHolder {
