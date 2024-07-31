@@ -1,11 +1,10 @@
-package baseball;
+package baseball.service;
 
 import static org.assertj.core.api.Assertions.*;
 
 import baseball.model.Computer;
 import baseball.model.GameResult;
 import baseball.model.Player;
-import baseball.service.BaseballService;
 import baseball.util.FixedNumberGenerator;
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
