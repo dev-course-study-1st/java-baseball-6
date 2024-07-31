@@ -5,12 +5,8 @@ import baseball.model.GameResult;
 import baseball.model.Player;
 import baseball.model.RestartCommand;
 import baseball.service.BaseballService;
-import baseball.util.converter.ConverterHolder;
-import baseball.util.converter.StringToPlayerConverter;
-import baseball.util.converter.StringToRestartCommandConverter;
 import baseball.view.InputView;
 import baseball.view.OutputView;
-import java.util.List;
 
 public class GameController {
 
@@ -20,7 +16,6 @@ public class GameController {
     public GameController(Computer computer, BaseballService baseballService) {
         this.computer = computer;
         this.baseballService = baseballService;
-        setConverters();
     }
 
     public void run() {
@@ -42,13 +37,5 @@ public class GameController {
 
     private void resetGame() {
         this.computer.resetNumber();
-    }
-
-    private void setConverters() {
-        ConverterHolder.setConverters(
-                List.of(
-                        new StringToPlayerConverter(),
-                        new StringToRestartCommandConverter()
-                ));
     }
 }
