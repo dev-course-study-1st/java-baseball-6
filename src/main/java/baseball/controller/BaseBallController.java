@@ -3,10 +3,7 @@ package baseball.controller;
 import baseball.model.Computer;
 import baseball.model.User;
 import baseball.service.BaseBallService;
-import baseball.utils.valid.ExitValidator;
-import baseball.utils.valid.Validator;
 import baseball.utils.view.ConsoleView;
-import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
 
