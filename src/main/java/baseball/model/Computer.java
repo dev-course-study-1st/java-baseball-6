@@ -11,11 +11,11 @@ public class Computer {
 
     public Computer(NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
-        this.answerNumber = numberGenerator.getRandomNumber();
+        this.answerNumber = numberGenerator.generate();
     }
 
     public void resetNumber() {
-        this.answerNumber = numberGenerator.getRandomNumber();
+        this.answerNumber = numberGenerator.generate();
     }
 
     public boolean contains(Integer number) {
