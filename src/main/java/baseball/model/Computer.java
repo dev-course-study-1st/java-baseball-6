@@ -11,10 +11,6 @@ public class Computer {
         this.answerNumber = RandomNumberGenerator.getRandomNumber();
     }
 
-    public List<Integer> getAnswerNumber() {
-        return answerNumber;
-    }
-
     public void resetNumber() {
         this.answerNumber = RandomNumberGenerator.getRandomNumber();
     }

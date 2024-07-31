@@ -1,7 +1,7 @@
 package baseball.util.converter;
 
-public interface Converter<F, T>  {
+public interface Converter<S, T>  {
     boolean supports(Object from, Class<?> to);
 
-    T convert(F target);
+    T convert(S source);
 }

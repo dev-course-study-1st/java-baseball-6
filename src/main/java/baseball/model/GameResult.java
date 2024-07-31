@@ -10,11 +10,11 @@ public class GameResult {
         this.ballCount = 0;
     }
 
-    public void count(Judge judge) {
-        if (judge == Judge.STRIKE) {
+    public void count(Judgment judgement) {
+        if (judgement == Judgment.STRIKE) {
             strikeCount++;
         }
-        if (judge == Judge.BALL) {
+        if (judgement == Judgment.BALL) {
             ballCount++;
         }
     }

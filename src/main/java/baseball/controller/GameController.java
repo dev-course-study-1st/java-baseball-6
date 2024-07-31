@@ -3,9 +3,11 @@ package baseball.controller;
 import baseball.model.Computer;
 import baseball.model.GameResult;
 import baseball.model.Player;
+import baseball.model.RestartCommand;
 import baseball.service.BaseballService;
 import baseball.util.ConverterHolder;
 import baseball.util.converter.StringToPlayerConverter;
+import baseball.util.converter.StringToRestartCommandConverter;
 import baseball.view.InputView;
 import baseball.view.OutputView;
 import java.util.List;
@@ -29,14 +31,24 @@ public class GameController {
             OutputView.printResult(result);
             if (result.isDone()) {
                 OutputView.printSuccessMessage();
+                RestartCommand command = InputView.getRestartCommand();
+                if (command.isExit()) {
+                    break;
+                }
+                resetGame();
             }
         }
+    }
+
+    private void resetGame() {
+        this.computer.resetNumber();
     }
 
     private void setConverters() {
         ConverterHolder.setConverters(
                 List.of(
-                        new StringToPlayerConverter()
+                        new StringToPlayerConverter(),
+                        new StringToRestartCommandConverter()
                 ));
     }
 }

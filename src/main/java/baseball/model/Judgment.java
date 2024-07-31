@@ -1,12 +1,12 @@
 package baseball.model;
 
-public enum Judge {
+public enum Judgment {
 
     STRIKE,
     BALL,
     NOTHING;
 
-    public static Judge judge(boolean isContains, boolean isInPlace) {
+    public static Judgment judge(boolean isContains, boolean isInPlace) {
         if (isContains && isInPlace) {
             return STRIKE;
         }

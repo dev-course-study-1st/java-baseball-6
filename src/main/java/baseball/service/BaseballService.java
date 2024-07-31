@@ -2,7 +2,7 @@ package baseball.service;
 
 import baseball.model.Computer;
 import baseball.model.GameResult;
-import baseball.model.Judge;
+import baseball.model.Judgment;
 import baseball.model.Player;
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class BaseballService {
         for (int i = 0; i < playerNumber.size(); i++) {
             boolean isContain = computer.contains(playerNumber.get(i));
             boolean isInPlace = computer.isInPlace(playerNumber.get(i), i);
-            result.count(Judge.judge(isContain, isInPlace));
+            result.count(Judgment.judge(isContain, isInPlace));
         }
         return result;
     }
