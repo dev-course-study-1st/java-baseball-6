@@ -20,7 +20,7 @@ public class StringToPlayerConverter implements Converter<String, Player> {
         String[] split = target.split("");
         for (String s : split) {
             checkZero(s);
-            result.add(Integer.parseInt(s));
+            result.add(toInt(s));
         }
         checkDuplicate(result);
         return new Player(result);
@@ -35,6 +35,14 @@ public class StringToPlayerConverter implements Converter<String, Player> {
     private void checkZero(String s) {
         if (s.equals("0")) {
             throw new IllegalArgumentException("0은 입력할 수 없습니다.");
+        }
+    }
+
+    private static int toInt(String s) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자만 입력 가능합니다.");
         }
     }
 
