@@ -1,4 +1,5 @@
 package baseball.util;
+import baseball.model.Numbers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
@@ -10,8 +11,10 @@ class HintGeneratorTest {
     public void 힌트생성테스트() throws Exception{
         //given
         HintGenerator hintGenerator = new HintGenerator();
-        List<Integer> userNumbers = Arrays.asList(1, 2, 4);
-        List<Integer> computerNumbers = Arrays.asList(4, 2, 5);
+        List<Integer> userNumberList = Arrays.asList(1, 2, 4);
+        List<Integer> computerNumberList = Arrays.asList(4, 2, 5);
+        Numbers userNumbers = new Numbers(userNumberList);
+        Numbers computerNumbers = new Numbers(computerNumberList);
         //when
         String hint = hintGenerator.generateHint(userNumbers, computerNumbers);
         //then

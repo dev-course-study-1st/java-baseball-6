@@ -1,13 +1,17 @@
 package baseball.util;
+import baseball.model.Numbers;
+
 import java.util.List;
 public class HintGenerator {
-    public String generateHint(List<Integer> userNumbers, List<Integer> computerNumbers) {
+    public String generateHint(Numbers userNumbers, Numbers computerNumbers) {
+        List<Integer> userNumberList = userNumbers.getNumbers();
+        List<Integer> computerNumberList = computerNumbers.getNumbers();
         int balls = 0;
         int strikes = 0;
-        for (int i = 0; i < userNumbers.size(); i++) {
-            if (userNumbers.get(i).equals(computerNumbers.get(i))) {
+        for (int i = 0; i < userNumberList.size(); i++) {
+            if (userNumberList.get(i).equals(computerNumberList.get(i))) {
                 strikes++;
-            } else if (computerNumbers.contains(userNumbers.get(i))) {
+            } else if (computerNumberList.contains(userNumberList.get(i))) {
                 balls++;
             }
         }
