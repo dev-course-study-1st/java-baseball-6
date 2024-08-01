@@ -27,6 +27,6 @@ public class ConsoleView {
             sb.append("낫싱");
         }
 
-        System.out.println(sb.toString());
+        System.out.println(sb);
     }
 }
