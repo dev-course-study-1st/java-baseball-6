@@ -16,10 +16,10 @@ public class InputValidator {
         Set<Character> chars = new HashSet<>();
         for (char c : input.toCharArray()) {
             if (!chars.add(c)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
     private boolean isValidNumberRange(String input){
         for (char c : input.toCharArray()) {
