@@ -5,7 +5,7 @@ public class HintGenerator {
         int balls = 0;
         int strikes = 0;
         for (int i = 0; i < userNumbers.size(); i++) {
-            if (userNumbers.get(i).equals(computerNumbers)) {
+            if (userNumbers.get(i).equals(computerNumbers.get(i))) {
                 strikes++;
             } else if (computerNumbers.contains(userNumbers.get(i))) {
                 balls++;
