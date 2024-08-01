@@ -13,11 +13,14 @@ public class BaseBallController {
     public static final int NUMBERS_SIZE = 3;
 
     public BaseBallController() {
-        this.computer = new Computer();
         this.service = new BaseBallService();
     }
 
-    public void start()  {
+    private void getComputerInstance() {
+        this.computer = new Computer();
+    }
+
+    public void run()  {
         ConsoleView.printStart();
         while(true) {
             play(0, 0, new User());
@@ -28,7 +31,7 @@ public class BaseBallController {
     }
 
     private void play(int strike, int ball, User user) {
-        computer.createNumbers();
+        getComputerInstance();
         while(strike != NUMBERS_SIZE) {
             ConsoleView.printInputNumbers();
             user.setInputs(predict(user));
