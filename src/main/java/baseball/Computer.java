@@ -10,6 +10,7 @@ public class Computer {
 
 
     public void generateRandomNum() {
+        computerNum.clear();
         int BASEBALL_NUM_LENGTH = 3;
         while(computerNum.size() < BASEBALL_NUM_LENGTH) {
             int randNum = Randoms.pickNumberInRange(1,9);
