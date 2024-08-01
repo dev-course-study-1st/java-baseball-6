@@ -1,5 +1,5 @@
 package baseball;
-import baseball.model.NumberGenerator;
+import baseball.util.NumberGenerator;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
