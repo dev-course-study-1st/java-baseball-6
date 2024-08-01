@@ -8,10 +8,12 @@ public class Computer {
     private final NumberGenerator numberGenerator;
 
     private List<Integer> answerNumber;
+    private boolean onRunning;
 
     public Computer(NumberGenerator numberGenerator) {
         this.numberGenerator = numberGenerator;
         this.answerNumber = numberGenerator.generate();
+        this.onRunning = true;
     }
 
     public void resetNumber() {
@@ -24,5 +26,13 @@ public class Computer {
 
     public boolean isInPlace(Integer number, int index) {
         return this.answerNumber.get(index).equals(number);
+    }
+
+    public boolean onRunning() {
+        return onRunning;
+    }
+
+    public void updateState() {
+        this.onRunning = false;
     }
 }

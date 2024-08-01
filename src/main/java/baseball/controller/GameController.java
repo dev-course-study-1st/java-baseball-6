@@ -21,18 +21,23 @@ public class GameController {
 
     public void run() {
         printStartMessage();
-        while(true) {
+        while(computer.onRunning()) {
             Player player = getPlayerNumber();
             GameResult result = playOneRound(player);
             if (result.isDone()) {
                 printSuccessMessage();
                 RestartCommand command = getRestartCommand();
-                if (command.isExit()) {
-                    break;
-                }
-                resetGame();
+                reflectCommand(command);
             }
         }
+    }
+
+    private void reflectCommand(RestartCommand command) {
+        if (command.isExit()) {
+            computer.updateState();
+            return;
+        }
+        resetGame();
     }
 
     private GameResult playOneRound(Player player) {
