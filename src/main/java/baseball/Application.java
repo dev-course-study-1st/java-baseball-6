@@ -16,6 +16,7 @@ public class Application {
         setConverters();
         GameController controller = new GameController(computer(), baseballService());
         controller.run();
+        ConverterHolder.clearHolder();
     }
 
     private static Computer computer() {

@@ -1,12 +1,13 @@
 package baseball.controller;
 
+import static baseball.view.InputView.*;
+import static baseball.view.OutputView.*;
+
 import baseball.model.Computer;
 import baseball.model.GameResult;
 import baseball.model.Player;
 import baseball.model.RestartCommand;
 import baseball.service.BaseballService;
-import baseball.view.InputView;
-import baseball.view.OutputView;
 
 public class GameController {
 
@@ -19,20 +20,25 @@ public class GameController {
     }
 
     public void run() {
-        OutputView.printStartMessage();
+        printStartMessage();
         while(true) {
-            Player player = InputView.getPlayerNumber();
-            GameResult result = baseballService.play(computer, player);
-            OutputView.printResult(result);
+            Player player = getPlayerNumber();
+            GameResult result = playOneRound(player);
             if (result.isDone()) {
-                OutputView.printSuccessMessage();
-                RestartCommand command = InputView.getRestartCommand();
+                printSuccessMessage();
+                RestartCommand command = getRestartCommand();
                 if (command.isExit()) {
                     break;
                 }
                 resetGame();
             }
         }
+    }
+
+    private GameResult playOneRound(Player player) {
+        GameResult result = baseballService.play(computer, player);
+        printResult(result);
+        return result;
     }
 
     private void resetGame() {

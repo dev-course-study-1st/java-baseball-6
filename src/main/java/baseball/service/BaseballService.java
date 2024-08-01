@@ -12,10 +12,15 @@ public class BaseballService {
         GameResult result = new GameResult();
         List<Integer> playerNumber = player.getPlayerNumber();
         for (int i = 0; i < playerNumber.size(); i++) {
-            boolean isContain = computer.contains(playerNumber.get(i));
-            boolean isInPlace = computer.isInPlace(playerNumber.get(i), i);
-            result.count(Judgment.judge(isContain, isInPlace));
+            Judgment judgment = calculateJudgment(computer, playerNumber, i);
+            result.count(judgment);
         }
         return result;
+    }
+
+    private Judgment calculateJudgment(Computer computer, List<Integer> playerNumber, int i) {
+        boolean isContain = computer.contains(playerNumber.get(i));
+        boolean isInPlace = computer.isInPlace(playerNumber.get(i), i);
+        return Judgment.judge(isContain, isInPlace);
     }
 }
