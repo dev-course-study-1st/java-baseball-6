@@ -6,7 +6,7 @@ public class Application {
     public static void main(String[] args) throws IllegalArgumentException{
         try {
             BaseBallController gameManager = new BaseBallController();
-            gameManager.start();
+            gameManager.run();
         } catch (IllegalArgumentException e) {
             throw e;
         }
