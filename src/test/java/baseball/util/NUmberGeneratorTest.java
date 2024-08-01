@@ -1,4 +1,4 @@
-package baseball;
+package baseball.util;
 import baseball.util.NumberGenerator;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
