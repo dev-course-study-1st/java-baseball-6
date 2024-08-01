@@ -3,6 +3,7 @@ package baseball.controller;
 import baseball.model.Computer;
 import baseball.model.User;
 import baseball.service.BaseBallService;
+import baseball.utils.generator.NumbersGenerator;
 import baseball.utils.view.ConsoleView;
 
 import java.util.List;

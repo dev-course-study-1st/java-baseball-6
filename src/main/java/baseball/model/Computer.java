@@ -1,6 +1,8 @@
 package baseball.model;
 
 import baseball.controller.BaseBallController;
+import baseball.utils.generator.Generator;
+import baseball.utils.generator.NumberGenerator;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
@@ -10,23 +12,14 @@ public class Computer {
 
     private List<Integer> numbers;
 
+    //숫자를 하나씩 받아서 숫자 집합을 만드는 Generator 호출
     public Computer() {
-        this.numbers = createNumbers();
+        this.numbers = new NumberGenerator().generate();
     }
 
-    public List<Integer> createNumbers() {
-        // 이 코드는 1번 테스트 성공? 1번 테스트가
-        List<Integer> list = new ArrayList<>();
-        while(list.size() < BaseBallController.NUMBERS_SIZE) {
-            Integer number = Randoms.pickNumberInRange(1, 9);
-            if(!list.contains(number)) {
-                list.add(number);
-            }
-        }
-        return list;
-
-        //return Randoms.pickUniqueNumbersInRange(1,9,3); → 이 코드는 1번 테스트 실패?
-
+    //숫자 리스트를 받아서 숫자 집합을 만드는 Generator 호출
+    public Computer(Generator generator) {
+        this.numbers = generator.generate();
     }
 
     public List<Integer> getNumbers() {
