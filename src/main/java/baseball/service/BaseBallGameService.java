@@ -67,6 +67,10 @@ public class BaseBallGameService {
         }
     }
 
+    public boolean gameIsEnd(GameResult gameResult) {
+        return gameResult.getStrike() == GameNumber.NUMBER_MAX_SIZE.getNumber();
+    }
+
     public void startGame() {
         outputView.printStartMsg();
         while(true) {
