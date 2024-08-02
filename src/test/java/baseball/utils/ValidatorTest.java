@@ -1,36 +1,28 @@
-package baseball;
+package baseball.utils;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class PlayerTest {
+public class ValidatorTest {
+    private final Validator validator = new Validator();
 
-    private final Player player = new Player();
-
-    private void assertValidInput(String number) {
-        Assertions.assertThatIllegalArgumentException()
-                .isThrownBy(() -> player.validInput(number));
-    }
-
-    @DisplayName("입력이 null 인지 확인")
-    @Test
-    void intputIsNotNull() {
-        assertValidInput(null);
+    private void assertValidInput(String playerInput) {
+        assertThatIllegalArgumentException()
+                .isThrownBy(() -> validator.validate(playerInput));
     }
 
     @DisplayName("입력이 empty 인지 확인")
     @Test
-    void inputIsNotEmpty() {
+    void inputIsNotNull() {
         assertValidInput("");
     }
 
     @DisplayName("입력이 정상적인 경우")
     @Test
     void inputIsExpect() {
-        assertThat(player.validInput("123")).isTrue();
+        assertThatCode(() -> validator.validate("123")).doesNotThrowAnyException();
     }
 
     @DisplayName("입력값의 길이가 3이 아닌 경우")
