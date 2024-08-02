@@ -1,6 +1,6 @@
 package baseball.util;
 import baseball.model.Numbers;
-import org.junit.jupiter.api.DisplayName;
+import baseball.util.generator.HintGenerator;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;

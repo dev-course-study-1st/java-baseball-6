@@ -1,9 +1,9 @@
-package baseball.util;
+package baseball.util.validator;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class InputValidator {
+public class InputNumberValidator {
     public void validNumbers(String input){
         if(input.length()!=3)
             throw new IllegalArgumentException("입력은 세자리 수 이어야 합니다.");
@@ -29,10 +29,5 @@ public class InputValidator {
             }
         }
         return true;
-    }
-    public void validCommend(String input){
-        if(!(input.equals("1")||input.equals("2"))){
-            throw new IllegalArgumentException("입력은 1 또는 2여야 합니다.");
-        }
     }
 }

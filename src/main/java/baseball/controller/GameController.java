@@ -1,14 +1,17 @@
 package baseball.controller;
 import baseball.model.Numbers;
 import baseball.service.GameService;
-import baseball.util.InputHandler;
+import baseball.util.handler.InputGameHandler;
+import baseball.util.handler.InputNumberHandler;
 
 public class GameController {
     private final GameService gameService;
-    private final InputHandler inputHandler;
+    private final InputNumberHandler inputNumberHandler;
+    private final InputGameHandler inputGameHandler;
     public GameController(){
         gameService = new GameService();
-        inputHandler = new InputHandler();
+        inputNumberHandler = new InputNumberHandler();
+        inputGameHandler = new InputGameHandler();
     }
     public void start(){
         System.out.println("숫자 야구 게임을 시작합니다.");
@@ -16,13 +19,13 @@ public class GameController {
         while (gameContinue){
                 gameService.startNewGame();
                 play();
-                gameContinue = isRestart(inputHandler.inputRestart());
+                gameContinue = isRestart(inputGameHandler.inputRestart());
         }
     }
     public void play(){
         boolean gameWon = false;
         while (!gameWon) {
-            Numbers userNumbers = inputHandler.inputNumbers();
+            Numbers userNumbers = inputNumberHandler.inputNumbers();
             gameService.compareUserNumbers(userNumbers);
             gameWon = gameService.isGameWon(userNumbers);
             if(gameWon)

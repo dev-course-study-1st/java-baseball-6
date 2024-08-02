@@ -1,28 +1,31 @@
-package baseball.util;
+package baseball.util.handler;
+
 import baseball.model.Numbers;
+import baseball.util.validator.InputNumberValidator;
 import camp.nextstep.edu.missionutils.Console;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputHandler {
-    private final InputValidator inputValidator = new InputValidator();
+public class InputNumberHandler {
+    private final InputNumberValidator inputNumberValidator;
+
+    public InputNumberHandler() {
+        inputNumberValidator = new InputNumberValidator();
+    }
+
     public Numbers inputNumbers() {
         System.out.print("숫자를 입력해주세요 : ");
         String input = Console.readLine();
-        inputValidator.validNumbers(input);
+        inputNumberValidator.validNumbers(input);
         return parseNumbers(input);
     }
+
     public Numbers parseNumbers(String input) {
         List<Integer> numbers = new ArrayList<>();
-        for(char c:input.toCharArray()){
+        for (char c : input.toCharArray()) {
             numbers.add(c - '0');
         }
         return new Numbers(numbers);
-    }
-    public String inputRestart(){
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        String input = Console.readLine();
-        inputValidator.validCommend(input);
-        return input;
     }
 }

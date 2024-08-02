@@ -1,6 +1,6 @@
 package baseball.model;
 
-import baseball.util.NumberGenerator;
+import baseball.util.generator.NumberGenerator;
 
 public class Computer {
     private final Numbers numbers;

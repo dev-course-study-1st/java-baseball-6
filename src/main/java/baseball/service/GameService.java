@@ -2,8 +2,8 @@ package baseball.service;
 
 import baseball.model.Computer;
 import baseball.model.Numbers;
-import baseball.util.HintGenerator;
-import baseball.util.NumberGenerator;
+import baseball.util.generator.HintGenerator;
+import baseball.util.generator.NumberGenerator;
 
 public class GameService {
     private Computer computer;

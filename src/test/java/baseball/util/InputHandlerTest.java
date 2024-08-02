@@ -1,6 +1,7 @@
 package baseball.util;
 
 import baseball.model.Numbers;
+import baseball.util.handler.InputNumberHandler;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -15,12 +16,12 @@ class InputHandlerTest {
     @Test
     public void 사용자입력테스트 () throws Exception{
         //given
-        InputHandler inputHandler = new InputHandler();
+        InputNumberHandler inputNumberHandler = new InputNumberHandler();
         InputStream input = System.in;
         ByteArrayInputStream in = new ByteArrayInputStream("456".getBytes());
         System.setIn(in);
         //when
-        Numbers numbers = inputHandler.inputNumbers();
+        Numbers numbers = inputNumberHandler.inputNumbers();
         //then
         List<Integer> numberList = numbers.getNumbers();
         // 3자리수 검증
