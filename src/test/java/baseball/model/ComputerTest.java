@@ -1,5 +1,6 @@
 package baseball.model;
 
+import baseball.utils.constants.GameNumber;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ public class ComputerTest {
     void checkDigitIs1to9() {
         List<Integer> list = computer.getComputerNumber();
         for(int num : list) {
-            assertThat(num).isBetween(1,9);
+            assertThat(num).isBetween(GameNumber.MIN.getNumber(),GameNumber.MAX.getNumber());
         }
     }
 
