@@ -25,6 +25,8 @@ public class GameController {
             Numbers userNumbers = inputHandler.inputNumbers();
             gameService.compareUserNumbers(userNumbers);
             gameWon = gameService.isGameWon(userNumbers);
+            if(gameWon)
+                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
         }
     }
     private boolean isRestart(String input){
